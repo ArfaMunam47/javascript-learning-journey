@@ -53,3 +53,5 @@ console.log(Array.of({name: "ayesha", cast: "mughal" ,section:" B"})) // will co
   console.log(Array.of(score1,score2,score3,score4,score5)) // will add all the elements
   console.log(Array.of({name: "ayesha", cast: "mughal" ,section:" B"})) // will add all the elements
 
+  
+

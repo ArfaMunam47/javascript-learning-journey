@@ -9,11 +9,11 @@ function name(){
 }
 name() //function call
 //------------------------ ADDITION--------------------------
-function addTwoNumbers(num1,num2){
+function addTwoNumbers(num1,num2){ //parameters
     console.log(num1 + num2);
     
 }
-addTwoNumbers(66,22)
+addTwoNumbers(66,22)//arguments
 
 
 //------------------------ SUBTRACTION--------------------------

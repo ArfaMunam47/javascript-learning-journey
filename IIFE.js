@@ -23,4 +23,7 @@ console.log(((num1)=>num1+1)(5));
 //------------- Declaring Variable in ARROW FUNCTION & checking IIFE -----------------------------
 let two=( (num3,num4)=>num3*num4)(3,4)
 console.log(two);
+let three= ((num)=>num/5)(15)
+console.log(three);
+
 

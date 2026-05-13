@@ -1,34 +1,45 @@
-// control flow  logic flow
-// if(true){
-// console.log(`Hi there, it's Arfa Munam`);
+// ControlFlow  ........Logic Flow
+// ------------------------- IF
+// if(condition){
 
-// }
-// if (false){
-//     console.log(`Not gonna executed`);
-    
-// }
-if( 2== "2"){
-    console.log(`Will be executed`);
-    
-}
-if("3" ===3){
-    console.log(`Not gonna executed`);
-    
-}
-console.log(`This is be shown as the result in the terminal`);
+// }else{
 
-//  == , != , === , !== , <= ,>= , < ,> 
-const isUserLoggedIn= true
-const temperature= 45
-if (temperature>50){
-    console.log("Temperature is greater than 50");
-    
-}else{
-    console.log("Temperature is less than 50");
+// }   //------syntx
+if(true){
+    console.log("This will be shown in terminal because the condition is true");
     
 }
-if (isUserLoggedIn== true){
-    console.log(`This statement will be printed because this is true`);
+if(false){
+    console.log("This will not get printed");
     
 }
-console.log(`This will also be printed because JS treat it as new line of code normally`);
+if( 2 == "2"){
+    console.log("This will not check the datatype");
+    
+}
+if( 2 != "2"){
+    console.log("This will not check the datatype");
+    
+}
+console.log("The above statement is false so this console will be printed");
+// == , != , < , > , === , !==, <= ,>=
+if ("2" === "2"){
+    console.log(`Will check the datatype`);
+    
+}
+console.log('This will also printed because JS will treat it as separate line of code');
+const isUserLoggedIn = true
+const temperature = 50
+if(temperature > 60){
+    console.log("Temperature is greater than 60");
+    
+} else{
+    console.log("Temperature is less than 60");
+    
+}
+if (isUserLoggedIn !== false){
+    console.log(`This check strictly not equal to`);
+    
+}
+console.log(`Hello world. just did some random work`);
+

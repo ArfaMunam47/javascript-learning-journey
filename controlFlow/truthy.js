@@ -70,4 +70,9 @@ switch (month) {
         break;
 }
 
+// GOOGLE CONSOLE 
+// false == 0 -------------------true
+// false == '' -------------------true
+// '' == 0 -------------------true
+
 

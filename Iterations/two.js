@@ -13,14 +13,21 @@ while (i<=20) {
     i= i + 2
     
 }
-// ARRAY CONCEPT
-let myArr= ['arfa', 'ayesha','tayba','sania']
-console.log(myArr.length);
-
-let arr= 0
-while (arr< myArr.length) {
-    console.log(`Value is ${myArr[arr]}`);
-    arr= arr + 1
+//  ARRAY CONCEPT
+// Code Readability is very important in coding
+let myArr=['arfa','ayesha','arham']
+let varr= 0
+while (varr< myArr.length) {
+    console.log(`Value is ${myArr[varr]}`);
+    varr= varr+ 1
     
     
 }
+// DO-WHILE LOOP
+// let a = 1
+let a= 30 // 30 will be printed in terminal
+do {
+    console.log(`Value is ${a}`);
+    a=a+2
+    
+} while (a<=15);

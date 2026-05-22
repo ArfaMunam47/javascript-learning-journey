@@ -1,20 +1,17 @@
-// 21-05-2026 WORK
+// 21-05-2026 WORK Revision
+// ["","",""]
+// [{},{},{}]
 // FOR OF LOOP
-// ["arfa","hitesh","abubakar","Laraib"]
-// [{},{},{},{}]
-// We used For Each LOOP to access Arrays , Strings & Objects
-let myArr=[1,2,3,4,5,6,7]
-for (const i of myArr) {
-    // console.log(i); //will print each no. one by one
-    console.log(`Value is ${i}`);
+let myArr=["Arfa","Malaika","Atiya"]
+for (const element of myArr) {
+    console.log(element);   
 }
-let name= "Arfa Munam Butt"
-for (const element of name) {
-    if  (element == " "){
-        // break // will end printing if space occur
-        continue //will eliminate space
+let name="Arfa Munam Butt"
+for (const i of name) {
+    if(i  == " "){
+        continue
+        // break
     }
-    console.log(`Character is ${element}`); // will print each character one by one
-    
+    console.log(i);
     
 }

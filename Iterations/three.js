@@ -48,7 +48,7 @@ for (const [key, value] of map) {
 //     age: 18
 // }
 // for (const [key, value]  of obj) {
-//     console.log(key, ':-', value);
+//     console.log(key, ':-', value);   
     
 // } // will give us error because 'OBJECTS ARE NOT ITERABLE'
 

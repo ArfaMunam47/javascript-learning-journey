@@ -1,13 +1,14 @@
-<!--  30-05-2026 WORK -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!--  29-05-2026 WORK -->
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DOM | chai aur code</title>
-</head>
-<body>
+    <title>DOM | Chai aur Code</title>
+  </head>
+  <body style="background-color: #312d2d;color:bisque;font-size:30px;">
     <div class="parent">
+        <!-- Just checking NODELIST -->
         <div class="day">Monday</div>
         <div class="day">Tuesday</div>
         <div class="day">Wednesday</div>
@@ -16,23 +17,31 @@
         <div class="day">Saturday</div>
         <div class="day">Sunday</div>
     </div>
-    <!-- IMPORTANT THINGS TO NOTE
-      WINDOW + LEFT ARROW // TO OPEN TAB IN ONE SIDE OF LAPTOP
-      WINDOW + RIGHT ARROW // TO OPEN TAB IN OTHER SIDE OF LAPTOP
-    -->
-      <script>
+    <script>
        const parent= document.querySelector('.parent')
        console.log(parent);
        console.log(parent.children);
+       for (let i = 0; i < parent.children.length; i++) {
+        console.log(parent.children[i].innerHTML);
+       }
        console.log(parent.children[0]);
        console.log(parent.children[1].innerHTML);
-      parent.children[0].style.backgroundColor='orange'
-      parent.children[1].style.backgroundColor='red'
-      parent.children[2].style.backgroundColor='green'
-      parent.children[3].style.backgroundColor='pink'
-      console.log(parent.firstElementChild)
-      console.log(parent.lastElementChild)
-       
-      </script>
-</body>
-</html>
+    parent.children[0].style.backgroundColor='red'
+    parent.children[1].style.backgroundColor='purple'
+    parent.children[2].style.backgroundColor='green'
+    parent.children[3].style.backgroundColor='pink'
+    //    WINDOW + LEFT ARROW (TO KEEP TAB OPEN IN ONE SIDE OF LAPTOP)
+    //    WINDOW + RIGHT ARROW (TO KEEP TAB OPEN IN OTHER SIDE OF LAPTOP)
+    // CTRL + D (to select multiple items of same name)
+       console.log(parent.firstElementChild) //very important
+       console.log(parent.lastElementChild) //very important
+    //    NODELIST CONCEPTS AND RELATIONS 
+    console.log("Nodes : ",parent.childNodes)
+  const dayOne= document.querySelector('.day')
+  console.log(dayOne);
+  console.log(dayOne.parentElement);
+  console.log(dayOne.nextElementSibling);
+  
+    </script>
+  </body>
+  </html>

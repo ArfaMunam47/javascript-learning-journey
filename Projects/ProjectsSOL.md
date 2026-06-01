@@ -5,7 +5,8 @@
 ```javascript
 console.log("Arfa Munam")
 ```
-## Project#.1 Solution Code
+
+# Project#.1 Solution CODE
 ```javascript
 // Doing everything with my hands
 const button = document.querySelectorAll('.button');
@@ -37,7 +38,7 @@ button.forEach(function (button) {
 });
 ```
 
-# Project 2 Solution CODE
+# Project#.2 Solution CODE
 # BMI CALCULATOR
 ```javascript
 const form = document.querySelector('form');
@@ -69,7 +70,7 @@ form.addEventListener('submit', function (e) {
 });
 
 ```
-# Project 3 Solution CODE
+# Project#.3 Solution CODE
 ## DIGITAL CLOCK
 
 ```javascript

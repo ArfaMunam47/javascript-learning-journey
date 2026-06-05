@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Html Events</title>
+</head>
+<body style="background-color: #414141;color:beige">
+    <ul class="images">
+        <!-- onclick EVENT -->
+        <li id="one"><img src="imgs/1.jpg" width="250px" alt="one" onclick="alert('Just a random picture')"></li> <!--not a good approach-->
+        <li id="two"><img src="imgs/2.jpg" width="250px" alt=""></li>
+        <li id="three"><img src="imgs/3.jpg" width="250px" alt=""></li>
+        <li id="four"><img src="imgs/4.jpg" width="250px" alt=""></li>
+        <li id="five"><img src="imgs/5.jpg" width="250px" alt=""></li>
+        <li id="six"><img src="imgs/6.jpg" width="250px" alt=""></li>
+        <li id="eight"><a href="https://www.google.com/maps" style="color:beige";>Google Maps</a>
+        </li>
+    </ul>
+    
+</body>
+<script>
+    document.getElementById('two').onclick=function(){
+        alert('This is second picture')
+    }
+    // not that good appraoch
+    document.getElementById('three').addEventListener('click',function(e){
+        alert('This  is picture no. 3 and of modern approach') //modern approach
+        console.log(e)
+    })
+    // EVENTLISTENER is very important and we'll check it by console.log(e) as mentioned above
+    // we should know about ... TYPE ...TIMESTAMP ...PREVENTDEFAULT
+    // TYPE tell about which event listener is used
+    // TIMESTAMPS tell about time used in miliseconds
+    // PREVENTDEFAULT prevent default behavior
+    document.getElementById('eight').addEventListener('click',function(e){
+        e.preventDefault()
+        console.log(e)
+        console.log(e.type)
+        console.log(e.timeStamp)
+    })
+</script>
+</html>

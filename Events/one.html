@@ -1,43 +1,63 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!-- 6-06-2026 WORK -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Html Events</title>
-</head>
-<body style="background-color: #414141;color:beige">
+ </head>
+ <body style="background-color: #414141;color:beige">
     <ul class="images">
-        <!-- onclick EVENT -->
-        <li id="one"><img src="imgs/1.jpg" width="250px" alt="one" onclick="alert('Just a random picture')"></li> <!--not a good approach-->
-        <li id="two"><img src="imgs/2.jpg" width="250px" alt=""></li>
-        <li id="three"><img src="imgs/3.jpg" width="250px" alt=""></li>
-        <li id="four"><img src="imgs/4.jpg" width="250px" alt=""></li>
-        <li id="five"><img src="imgs/5.jpg" width="250px" alt=""></li>
-        <li id="six"><img src="imgs/6.jpg" width="250px" alt=""></li>
-        <li id="eight"><a href="https://www.google.com/maps" style="color:beige";>Google Maps</a>
-        </li>
+        <li id="one"><img src="imgs/1.jpg" alt="one" width="250px" onclick="alert('I think its a girl image')"></li> <!-- not good approach-->
+        <li id="two"><img src="imgs/2.jpg" alt="" width="250px"></li>
+        <li id="three"><img src="imgs/3.jpg" alt="" width="250px"></li>
+        <li id="four"><img src="imgs/4.jpg" alt="" width="250px"></li>
+        <li id="five"><img src="imgs/5.jpg" alt="" width="250px"></li>
+        <li id="six"><img src="imgs/6.jpg" alt="" width="250px"></li>
+        <li id="seven"><a href="https://www.google.com/maps" style="color:beige;font-size: 30px;">Google</a></li>
     </ul>
+    <div class="box1" style="color:beige;font-size: 30px;">BOX NO.1</div>
+    <div class="box2" style="color:beige;font-size: 30px;">BOX NO.2</div>
     
-</body>
-<script>
+ </body>
+ <script>
     document.getElementById('two').onclick=function(){
-        alert('This is second picture')
+        alert('Building Image') //not that good approach but still it works
     }
-    // not that good appraoch
-    document.getElementById('three').addEventListener('click',function(e){
-        alert('This  is picture no. 3 and of modern approach') //modern approach
+    // --type --timeStamp --preventDefault
+    // --target(in which element event listener is happened) --currentTarget(parent div in which event listener is attached) srcElement(target) --toElement(mouseover/mouseout/click/dblclick)old method --relatedTarget(modern approach used for toElement)
+    document.getElementById('seven').addEventListener('click',function(e){
+        alert('Dont know exactly about the image') //modern and best approach
+        e.preventDefault() //prevent default behaviour
         console.log(e)
+        console.log(e.type) //which event listener is used
+        console.log(e.timeStamp) //time in miliseconds
+        console.log(e.target) //a
+        console.log(e.srcElement) //a (old approach)
+        console.log(e.currentTarget) //li
+        
     })
-    // EVENTLISTENER is very important and we'll check it by console.log(e) as mentioned above
-    // we should know about ... TYPE ...TIMESTAMP ...PREVENTDEFAULT
-    // TYPE tell about which event listener is used
-    // TIMESTAMPS tell about time used in miliseconds
-    // PREVENTDEFAULT prevent default behavior
-    document.getElementById('eight').addEventListener('click',function(e){
-        e.preventDefault()
-        console.log(e)
-        console.log(e.type)
-        console.log(e.timeStamp)
-    })
-</script>
-</html>
+    // --screenX --screenY --tiltX --tiltY 
+    // --altkey --ctrlkey --shiftkey --keyCode(old) --key(modern)
+   let box=  document.querySelector('.box1')
+   box.addEventListener('mouseout',function(e){
+    console.log(e.toElement) //old approach
+    console.log(e.relatedTarget) //box2
+    console.log(e.screenX) //x position on screen
+    console.log(e.screenY) //y position on screen
+    console.log(e.tiltY)
+    console.log(e.tiltX)
+    //tell us these keys are used or not and give us answer in boolean form
+    console.log(e.altKey) //false
+    console.log(e.ctrlKey) //false
+    console.log(e.shiftKey) //false
+   })
+   document.addEventListener('keydown',function(e){
+    console.log("Key: ",e.key)
+    console.log("KeyCode: ",e.keyCode)
+    console.log("Code: ",e.keyCode)
+   })
+//    learn about .. type ..timeStamp ..preventDefault .. target ..currentTarget ..srcElement .. toElement ..relatedTarget ..screenX .. screenY ..tiltX ..tiltY ..key ..keyCode ..altKey .. ctrlKey ..shiftKey 
+ </script>
+
+ </html>

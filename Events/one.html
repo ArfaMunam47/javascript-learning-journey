@@ -69,12 +69,23 @@ document.getElementById('six').addEventListener('click',function(e){
 },false)  //default behavious is also false but to mention it is important and seem professional
 
 //CAPTURING APPROACH
-// document.querySelector('.images').addEventListener('click',function(e){
-//     console.log('Clicked inside the ul')
-// },true) //this is capturing approach which goes from TOP TO BOTTOM or from parent to child 
-// document.getElementById('five').addEventListener('click',function(e){
-//     console.log('Girly with book Clicked')
-// },true)  // it will goes from parent to child 
+document.querySelector('.images').addEventListener('click',function(e){
+    console.log('Clicked inside the ul')
+},true) //this is capturing approach which goes from TOP TO BOTTOM or from parent to child 
+document.getElementById('five').addEventListener('click',function(e){
+    console.log('Girly with book Clicked')
+},true)  // it will goes from parent to child 
+//Example of removing child when click one by one
+document.querySelector('.images').addEventListener('click',function(e){
+console.log(e.target.parentNode)
+console.log(e.target.tagName)
+if(e.target.tagName === 'IMG'){
+    console.log(e.target.parentNode.id)
+    let remove=e.target.parentNode
+    remove.remove() //easy
+    // remove.parentNode.removeChild(remove) //little tricky
+}
+})
 
  </script>
 

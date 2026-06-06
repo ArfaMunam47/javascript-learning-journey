@@ -58,6 +58,24 @@
     console.log("Code: ",e.keyCode)
    })
 //    learn about .. type ..timeStamp ..preventDefault .. target ..currentTarget ..srcElement .. toElement ..relatedTarget ..screenX .. screenY ..tiltX ..tiltY ..key ..keyCode ..altKey .. ctrlKey ..shiftKey 
+// EVENT PROPAGATION
+// 2 TYPES  --- bubbly event --- capturing event
+document.querySelector('.images').addEventListener('click',function(e){
+    console.log('Clicked inside the ul')
+},false) //this is bubbly approach which goes from BOTTOM TO TOP or from child to parent
+document.getElementById('six').addEventListener('click',function(e){
+    e.stopPropagation()
+    console.log('Boat Clicked')
+},false)  //default behavious is also false but to mention it is important and seem professional
+
+//CAPTURING APPROACH
+// document.querySelector('.images').addEventListener('click',function(e){
+//     console.log('Clicked inside the ul')
+// },true) //this is capturing approach which goes from TOP TO BOTTOM or from parent to child 
+// document.getElementById('five').addEventListener('click',function(e){
+//     console.log('Girly with book Clicked')
+// },true)  // it will goes from parent to child 
+
  </script>
 
  </html>

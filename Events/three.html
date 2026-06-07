@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color:#414141;color:beige">
+    <h1>Arfa Munam</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+    
+</body>
+<script>
+    // SETINTERVAL METHOD
+    setInterval(function(){
+        // console.log('Hey there! Welcome back..')
+    },2000)
+    let name=function(){
+        // console.log('Arfa',Date.now())
+    }
+    setInterval(name,1000)
+    //we can also pass parameters here
+        let para=function(str){
+        // console.log(str,Date.now())
+    }
+    // CLEARINTERVAL METHOD
+    let inter= setInterval(para,1000,'Hey')
+    clearInterval(inter)
+    // EXAMPLE OF WHEN START CLICK, PRINTING START AND WHEN STOP CLICK THEN PRINTING STOP
+let change=function(){
+    console.log('Arfa', Date.now())
+}
+let start= document.querySelector('#start').addEventListener('click',function(e){
+    start= setInterval(change,1000)
+})
+document.querySelector('#stop').addEventListener('click',function(e){
+    clearInterval(start)
+})
+
+</script>
+</html>

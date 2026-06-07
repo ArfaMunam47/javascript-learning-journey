@@ -18,3 +18,5 @@
 // ASYNCHRONOUS CODE means code will be executed and doesn't block the flow of program
 // if console.log(1) then 0 time ( console.log(2)),then 3 then first 1 will  be printed then 3 because this is asynchronous then 2 will be printed 
 // THEORETICAL CONCEPT
+// in QUEUE, element enter from left and spread out from right
+// in STACK, element enter from top and spread out from top

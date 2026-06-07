@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color:#414141;color:bisque;font-size: 20px;">
+    <h1>Arfa Munam</h1>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    // Gonna learn about setTimeout AND setInterval
+    let name=function(){
+        console.log("it's not that tough")
+    }
+    setTimeout(name,1000)
+    setTimeout(function(){
+        console.log("Mentorship by Arfa")
+    },2000)
+        setInterval(function(){
+        console.log("Hey there! Welcome back")
+    },2000)
+   let changeText=function(){
+     document.querySelector('h1').innerHTML='CEO Mentorship Guide Program by Arfa'
+   }
+   const set= setTimeout(changeText,3000)
+  document.querySelector('#stop').addEventListener('click',function(e){
+    clearTimeout(set)
+  })
+</script>
+</html>

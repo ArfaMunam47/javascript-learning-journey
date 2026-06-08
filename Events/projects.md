@@ -27,3 +27,26 @@ document.querySelector('#start').addEventListener('click', startChangingColor);
 document.querySelector('#stop').addEventListener('click', stopChangingColor);
 
 ```
+## project no. 6
+## keyboard MAGIC
+
+```javascript
+
+const insert = document.querySelector('#insert');
+window.addEventListener('keydown', (e) => {
+  insert.innerHTML = `
+  <table style='padding:10px;border:2px solid grey;border-radius:5px;'>
+  <tr>
+  <th>Key</th>
+  <th>KeyCode</th>
+  <th>Code</th>
+  </tr>
+  <tr>
+  <th>${e.key === ' ' ? 'Space' : e.key}</th>
+  <th>${e.keyCode}</th>
+  <th>${e.code}</th>
+  </tr>
+  </table>`;
+});
+
+```

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #414141;color:beige">
+    Different States
+    0 to 4
+    0 client call
+    1 request send
+    2 header and status available
+    3 hold partial data
+    4 operation complete
+</body>
+<script>
+    // old api request method
+    // xml request
+   const xml= new  XMLHttpRequest()
+   const url='https://api.github.com/users/arfamunam47'
+   xml.open('GET',url)
+   xml.onreadystatechange=function(){
+console.log(xml.readyState)
+if(xml.readyState === 4){
+    console.log(this.responseText)
+   
+}
+   }
+   
+  xml.send()
+</script>
+</html>

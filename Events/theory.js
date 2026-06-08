@@ -20,3 +20,6 @@
 // THEORETICAL CONCEPT
 // in QUEUE, element enter from left and spread out from right
 // in STACK, element enter from top and spread out from top
+
+// --------------------- 8-06-2026 
+// Overall the JAVASCRIPT is synchronous by default but with API, it's become asynchronous that's why sometime google mentioned JS as asynchronous language

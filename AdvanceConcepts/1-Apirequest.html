@@ -17,7 +17,7 @@
             font-size: 30px;
         }
         .card{
-            width:350px;
+            width:400px;
             height:250px;
             border:3px solid black;
             box-shadow: 2px 1px 3px rgb(145, 133, 118);
@@ -26,6 +26,26 @@
             margin:20px auto;
             visibility:hidden;
         }
+       .card img {
+  width: 50%;
+  float: right;
+  object-fit:cover;
+}
+.card h1{
+    float :left;
+    font-family: Arial, Helvetica, sans-serif;
+    color:black;
+
+  font-size: 20px;
+    margin-top:60px;
+}
+.card h4{
+    font-size: 20px;
+    float :left;
+    font-family: Arial, Helvetica, sans-serif;
+    color:black;
+    margin-top:20px;
+}
     </style>
   </head>
   <body style="background-color: #414141;color:bisque;">
@@ -46,29 +66,42 @@
        </button>
        <div class="card">
         <img src="" alt="">
-        <h1>Name: </h1>
-        <h4>Followers: </h4>
+        <h1></h1>
+        <h4><i></i></h4>
+        <img src="" alt="">
        </div>
   </body>
 <script>
-    // old method
-   const xml= new  XMLHttpRequest()
-   const url='https://api.github.com/users/arfamunam47'
-   const data = JSON.parse(xml.responseText)  //convert string to object
-   xml.open('GET',url)
-xml.onreadystatechange=function(){ //to see all states
-console.log(xml.readyState)
-console.log(data)
-console.log(typeof data) //string
-console.log(xml.followers)
-console.log(xml.public_repos)
+  const click = document.querySelector('#click');
+const card = document.querySelector('.card');
+const img = document.querySelectorAll('img')[0];
+const name = document.querySelector('h1');
+const followers = document.querySelector('h4');
 
-}
-const body= document.querySelector('body')
-const card= document.querySelector('.card')
-document.querySelector('#click').addEventListener('click',function(e){
-console.log(e)
-})
-xml.send()
+const userData = function () {
+  const xml = new XMLHttpRequest();
+  const url = 'https://api.github.com/users/sushmita-rgb';
+
+  xml.open('GET', url);
+
+  xml.onreadystatechange = function () {
+    console.log(xml.readyState);
+
+    if (xml.readyState === 4 && xml.status === 200) {
+      const data = JSON.parse(xml.responseText);
+
+      img.src = data.avatar_url;
+      name.innerHTML = 'Name: <br>' + (data.name || data.login);
+      followers.innerHTML = 'Followers: ' + data.followers;
+
+      card.style.visibility = 'visible';
+    }
+  };
+
+  xml.send();
+};
+
+click.addEventListener('click', userData);
 </script>
-  </html>
+  
+   </html>

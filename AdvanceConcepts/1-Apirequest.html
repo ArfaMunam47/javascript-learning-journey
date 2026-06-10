@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Logic</title>
   <style>
+    body{
+      padding:10px;
+    }
     h1{
       margin-top:50px;
        font-size: 40px;
@@ -24,6 +27,7 @@
       font-size: 28px;
     }
     .card{
+      padding:10px;
       width:400px;
       height:300px;
       border:5px solid black;
@@ -35,8 +39,26 @@
       visibility:hidden;
     }
     .card img{
-      width:50%;
+      width:40%;
+      height:280px;
       object-fit:cover;
+      float:right;
+    }
+    .card h2{
+      float:left;
+      margin-top:50px;
+      font-size: 25px;
+      color:rgb(0, 0, 0);
+    }
+    .card h3{
+ font-size:22px;
+      color:rgb(0, 0, 0);
+      margin-top:120px;
+    }
+    .card p{
+ font-size:20px;
+      color:rgb(0, 0, 0);
+      margin-top:20px;
     }
     
   </style>
@@ -47,6 +69,7 @@
   <div class="card">
     <img src="" alt="">
     <h2></h2>
+    <h3></h3>
     <p></p>
   </div>
   <!-- old API ACCESS METHOD -->
@@ -70,17 +93,25 @@
   // console.log('HERE')
   xml.onreadystatechange=function(){
 console.log(xml.readyState)
-if(xml.readyState === 4){
+if(xml.readyState === 4 && xml.status === 200){
   const data=JSON.parse(xml.responseText) //convert string to object
   console.log(data)
   const img= document.querySelector('img')
   const click= document.querySelector('#click')
-  const name= document.querySelector('h1')
-  const followers= document.querySelector('p')
+  const name= document.querySelector('h2')
+  const followers= document.querySelector('h3')
   const card= document.querySelector('.card')
-  img.url='https://avatars.githubusercontent.com/u/246957019?v=4'
-  name.innerHTML='NAME: <br> ',(data.login || data.name)
- followers.innerHTML='Followers : ',data.followers
+  const bio= document.querySelector('p')
+//  img.src='https://avatars.githubusercontent.com/u/246957019?v=4'
+ img.src = data.avatar_url;
+
+
+
+
+name.innerHTML="Name : <br>"+(data.name || data.login)
+followers.innerHTML="<i>Followers: </i>"+ (data.followers)
+bio.innerHTML="<i>About: </i>"+ (data.bio)
+card.style.visibility = "visible";
   // console.log(typeof data)//string
   // console.log(data.followers)
   // console.log(data.public_repos)

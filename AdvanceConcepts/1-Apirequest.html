@@ -1,107 +1,96 @@
-<!-- 9-06-2026 WORK -->
- <!-- REVISION -->
-  <!DOCTYPE html>
-  <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        #click{
-            background-color: indianred;
-            padding:10px;
-            border:2px solid bisque;
-            box-shadow: 2px 1px 3px black;
-            margin-left:100px;
-            margin-top:100px;
-            font-size: 30px;
-        }
-        .card{
-            width:400px;
-            height:250px;
-            border:3px solid black;
-            box-shadow: 2px 1px 3px rgb(145, 133, 118);
-            background-color: blanchedalmond;
-            padding:15px;
-            margin:20px auto;
-            visibility:hidden;
-        }
-       .card img {
-  width: 50%;
-  float: right;
-  object-fit:cover;
-}
-.card h1{
-    float :left;
-    font-family: Arial, Helvetica, sans-serif;
-    color:black;
-
-  font-size: 20px;
-    margin-top:60px;
-}
-.card h4{
-    font-size: 20px;
-    float :left;
-    font-family: Arial, Helvetica, sans-serif;
-    color:black;
-    margin-top:20px;
-}
-    </style>
-  </head>
-  <body style="background-color: #414141;color:bisque;">
-    <!-- API ------ talking way between systems like frontend and backend or b/w different languages -->
-     <!-- OLD API METHOD ---- xmlhttprequest -->
-      <!-- 
-     there are 5 states in xmlhttprequest
-     0 -- client called
-     1 -- request send
-     2 -- header and status available
-     3 -- hold partial data (loading)
-     4 -- operation completed
-      -->
-     <!-- LINK TO GET UR OWN API OF GITHUB ________________ api.github.com/users/arfamunam47 -->
-      <!-- readystate --> <!----------- oncurrentchangeon ------------------->
-       <button id="click">
-        Click Here
-       </button>
-       <div class="card">
-        <img src="" alt="">
-        <h1></h1>
-        <h4><i></i></h4>
-        <img src="" alt="">
-       </div>
-  </body>
-<script>
-  const click = document.querySelector('#click');
-const card = document.querySelector('.card');
-const img = document.querySelectorAll('img')[0];
-const name = document.querySelector('h1');
-const followers = document.querySelector('h4');
-
-const userData = function () {
-  const xml = new XMLHttpRequest();
-  const url = 'https://api.github.com/users/sushmita-rgb';
-
-  xml.open('GET', url);
-
-  xml.onreadystatechange = function () {
-    console.log(xml.readyState);
-
-    if (xml.readyState === 4 && xml.status === 200) {
-      const data = JSON.parse(xml.responseText);
-
-      img.src = data.avatar_url;
-      name.innerHTML = 'Name: <br>' + (data.name || data.login);
-      followers.innerHTML = 'Followers: ' + data.followers;
-
-      card.style.visibility = 'visible';
+<!-- 10-06-2026 TEST -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Logic</title>
+  <style>
+    h1{
+      margin-top:50px;
+       font-size: 40px;
+       font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+       color:rgb(4, 19, 40);
+       text-shadow: 1px 2px 3px #ada4a4;
+        margin-left:50px;
     }
-  };
+    #click{
+      border:3px solid black;
+      padding:10px;
+      background-color: rgb(173, 141, 92);
+      box-shadow: 2px 1px 3px rgb(157, 160, 151);
+      margin-left:250px;
+      margin-top:10px;
+      font-size: 28px;
+    }
+    .card{
+      width:400px;
+      height:300px;
+      border:5px solid black;
+      border-radius: 20px;
+      margin-left:350px;
+      box-shadow:2px 1px 3px white;
+      margin-top:50px ;
+      background-color: blanchedalmond;
+      visibility:hidden;
+    }
+    .card img{
+      width:50%;
+      object-fit:cover;
+    }
+    
+  </style>
+ </head>
+ <body style="background-color: #414141;color:antiquewhite">
+<h1><b>A SMALL JS EXAMPLE PROJECT</b></h1>
+  <button id="click"><b><i>CLICK HERE</i></b></button>
+  <div class="card">
+    <img src="" alt="">
+    <h2></h2>
+    <p></p>
+  </div>
+  <!-- old API ACCESS METHOD -->
+   <!-- API--- talking way between fontend or backend or between different system or languages
+   API------- old method ----- xmlhttprequest
+   5 STATES
+   0 -- Client called
+   1 -- Request sent
+   2 -- Headers and status get available
+   3 -- partial data loading
+   4 -- operation complete -->
+   <!-- api.github.com/users/arfamunam47          ______ TO ACCESS OUR OWN API  -->
+    <!-- READYSTATE (current state) -->
+    <!-- onreadystatechange (to see all states) -->
+ </body>
+ <script>
+ const getData= function(){
+   const xml= new XMLHttpRequest()
+  const url= 'https://api.github.com/users/arfamunam47'
+  xml.open('GET', url)
+  // console.log('HERE')
+  xml.onreadystatechange=function(){
+console.log(xml.readyState)
+if(xml.readyState === 4){
+  const data=JSON.parse(xml.responseText) //convert string to object
+  console.log(data)
+  const img= document.querySelector('img')
+  const click= document.querySelector('#click')
+  const name= document.querySelector('h1')
+  const followers= document.querySelector('p')
+  const card= document.querySelector('.card')
+  img.url='https://avatars.githubusercontent.com/u/246957019?v=4'
+  name.innerHTML='NAME: <br> ',(data.login || data.name)
+ followers.innerHTML='Followers : ',data.followers
+  // console.log(typeof data)//string
+  // console.log(data.followers)
+  // console.log(data.public_repos)
+  // console.log(data.avatar_url)
+}
+  }
 
-  xml.send();
-};
-
-click.addEventListener('click', userData);
-</script>
-  
-   </html>
+  xml.send()
+ }
+ click.addEventListener('click',getData)
+ 
+ </script>
+ </html>

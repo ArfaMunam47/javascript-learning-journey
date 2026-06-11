@@ -1,127 +1,108 @@
-<!-- 10-06-2026 TEST -->
+<!-- 11-06-2026 WORK AND REVISION TEST -->
  <!DOCTYPE html>
  <html lang="en">
  <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Logic</title>
-  <style>
-    body{
-      padding:10px;
-    }
-    h1{
-      margin-top:50px;
-       font-size: 40px;
-       font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-       color:rgb(4, 19, 40);
-       text-shadow: 1px 2px 3px #ada4a4;
-        margin-left:50px;
-    }
-    #click{
-      border:3px solid black;
-      padding:10px;
-      background-color: rgb(173, 141, 92);
-      box-shadow: 2px 1px 3px rgb(157, 160, 151);
-      margin-left:250px;
-      margin-top:10px;
-      font-size: 28px;
-    }
-    .card{
-      padding:10px;
-      width:400px;
-      height:300px;
-      border:5px solid black;
-      border-radius: 20px;
-      margin-left:350px;
-      box-shadow:2px 1px 3px white;
-      margin-top:50px ;
-      background-color: blanchedalmond;
-      visibility:hidden;
-    }
-    .card img{
-      width:40%;
-      height:280px;
-      object-fit:cover;
-      float:right;
-    }
-    .card h2{
-      float:left;
-      margin-top:50px;
-      font-size: 25px;
-      color:rgb(0, 0, 0);
-    }
-    .card h3{
- font-size:22px;
-      color:rgb(0, 0, 0);
-      margin-top:120px;
-    }
-    .card p{
- font-size:20px;
-      color:rgb(0, 0, 0);
-      margin-top:20px;
-    }
-    
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card</title>
+    <style>
+        h1{
+            color:#6495ed;
+            font-size: 50px;
+            font-family: 'Times New Roman', Times, serif;
+            text-shadow: 2px 1px 2px black;
+             margin-left:80px;
+            margin-top:30px;
+        }
+        #click{
+             font-size: 30px;
+            background-color: #6495ed;
+            border:3px solid blanchedalmond;
+            box-shadow:  2px 1px 2px black;
+            padding:10px;
+            border-radius: 10px;
+            margin-left:150px;
+            margin-top:10px;
+        }
+        .card{
+            width:500px;
+            height:300px;
+           background-color: #6495ed;
+            border:3px solid blanchedalmond;
+            box-shadow:  2px 1px 2px black;
+            margin-left:360px;
+            margin-top:20px;
+            padding:10px;
+            border-radius: 5px;
+            visibility:hidden;
+        }
+        .card img{
+width:50%;
+object-fit:cover;
+
+        }
+        .card h2{
+color:black;
+        }
+        .card h3{
+color:black;
+        }
+        .card h4{
+color:black;
+        }
+    </style>
  </head>
- <body style="background-color: #414141;color:antiquewhite">
-<h1><b>A SMALL JS EXAMPLE PROJECT</b></h1>
-  <button id="click"><b><i>CLICK HERE</i></b></button>
-  <div class="card">
-    <img src="" alt="">
-    <h2></h2>
-    <h3></h3>
-    <p></p>
-  </div>
-  <!-- old API ACCESS METHOD -->
-   <!-- API--- talking way between fontend or backend or between different system or languages
-   API------- old method ----- xmlhttprequest
-   5 STATES
-   0 -- Client called
-   1 -- Request sent
-   2 -- Headers and status get available
-   3 -- partial data loading
-   4 -- operation complete -->
-   <!-- api.github.com/users/arfamunam47          ______ TO ACCESS OUR OWN API  -->
-    <!-- READYSTATE (current state) -->
-    <!-- onreadystatechange (to see all states) -->
+ <body style="background-color: #414141;color:beige">
+    <!-- OLD API METHOD 
+     5 STATES
+     0 _____________ client called 
+     1 _____________ request send
+     2 _____________ status and headers become available
+     3 _____________ loading of partial data
+     4 _____________ operation complete
+     xmlHTTPrequest() //old method
+     api.github.com/users/arfamunam47     ____________ to access our own api of github account
+    -->
+    <!-- API-------------- Talking way between frontend and backend or b/w different languages or b/w different systems -->
+<h1><b><i>A SMALL JS PROJECT</i></b></h1>
+    <button id="click">Click Here</button>
+    <div class="card">
+        <img src="" alt="">
+        <h2></h2>
+        <h3></h3>
+        <h4></h4>
+    </div>
  </body>
  <script>
- const getData= function(){
-   const xml= new XMLHttpRequest()
-  const url= 'https://api.github.com/users/arfamunam47'
-  xml.open('GET', url)
-  // console.log('HERE')
-  xml.onreadystatechange=function(){
-console.log(xml.readyState)
-if(xml.readyState === 4 && xml.status === 200){
-  const data=JSON.parse(xml.responseText) //convert string to object
-  console.log(data)
-  const img= document.querySelector('img')
-  const click= document.querySelector('#click')
-  const name= document.querySelector('h2')
-  const followers= document.querySelector('h3')
-  const card= document.querySelector('.card')
-  const bio= document.querySelector('p')
-//  img.src='https://avatars.githubusercontent.com/u/246957019?v=4'
- img.src = data.avatar_url;
+const getUserData= function(){
+    const xml= new XMLHttpRequest()
+const url='https://api.github.com/users/arfamunam47'
+xml.open('GET', url)
+// console.log('HERE')
+xml.onreadystatechange=function(){
+console.log(xml.readyState) //current state
+if(xml.readyState=== 4 && xml.status=== 200){
+    const data= JSON.parse(xml.responseText) //to convert string into object
+   console.log(data)
+   console.log(typeof data)
+   console.log(data.followers)
+   console.log(data.bio)
+  const click=  document.querySelector('#click')
+  const card=  document.querySelector('.card')
+  const img=  document.querySelector('img')
+  const name=  document.querySelector('h2')
+  const followers=  document.querySelector('h3')
+  const bio=  document.querySelector('h4')
+ img.src= 'data.avatar_url'
 
-
-
-
-name.innerHTML="Name : <br>"+(data.name || data.login)
-followers.innerHTML="<i>Followers: </i>"+ (data.followers)
-bio.innerHTML="<i>About: </i>"+ (data.bio)
-card.style.visibility = "visible";
-  // console.log(typeof data)//string
-  // console.log(data.followers)
-  // console.log(data.public_repos)
-  // console.log(data.avatar_url)
+  name.innerHTML='Name : <br>'+ (data.name||data.login)
+  followers.innerHTML='Followers : '+ (data.followers)
+  card.style.visibility='visible'
 }
-  }
+}
 
-  xml.send()
- }
- click.addEventListener('click',getData)
- 
+xml.send()
+}
+click.addEventListener('click',getUserData)
  </script>
  </html>

@@ -13,7 +13,7 @@ constructor function
 prototypes
 instances ( new, this )
 ## 4 pillars of OOP
-1- abstraction  ________ data hiding 
-2- polymorphism _____________ different forms like one method can perform different functions
-3- encapsulation ____________ binding of data and methods
+1- abstraction  ________ data hiding   
+2- polymorphism _____________ different forms like one method can perform different functions  
+3- encapsulation ____________ binding of data and methods    
 4- inheritance ______________ child can inherit properties of parents

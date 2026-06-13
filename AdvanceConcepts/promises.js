@@ -46,50 +46,67 @@ promiseFour.then(function(user){
     console.log(user)
 })
 
-// PROMISE FIVE
+// PROMISE FIVE ________________ We can pass multiple then in async code
 const promiseFive= new Promise(function(resolve,reject){
     setTimeout(function(){
-        const error= false
         // const error= true
+        const error= false
         if(!error){
-            resolve({name:'Julie Khan', gender:'thirdGender'})
+            resolve({name:'JS',password:'@123'})
         }else{
-            reject('ERROR : Something went wrong')
+            reject('ERROR: Something went wrong')
         }
-    },5000)
+    },1000)
 })
 promiseFive.then(function(user){
-console.log(user)
-return user.gender
+    console.log(user)
+    return user.name
+}).then(function(name){
+    console.log(name)
+}).catch(function(error){
+    console.log(error)
 })
-.then(function(gender){   // make code more readable and prettier
-    console.log(gender)
+// TRY CATCH METHOD 
+// TO GRACEFULLY HANDLE OUR ASYNC CODE
+// PROMISE SIX ________________ We can pass multiple then in async code
+const promiseSix= new Promise(function(resolve,reject){
+    setTimeout(function(){
+        const error= true
+        // const error= false
+        if(!error){
+            resolve({name:'SWIFT',password:'@123'})
+        }else{
+            reject('ERROR: SWIFT went wrong')
+        }
+    },2000)
+})
+async function consumePromiseSix(){
+    try {
+        const response= await promiseSix
+    console.log(response)
+    } catch (error) {
+        console.log(error)
+    }
+}
+consumePromiseSix()
+
+// FETCH METHOD()
+async function getUserData(){
+   const data= await fetch('https://jsonplaceholder.typicode.com/users')
+ const json=   await data.json()
+ console.log(json)
+}
+getUserData()
+
+// ANOTHER APPROACH
+fetch('https://api.github.com/users/arfamunam47')
+.then(function(data){
+    return data.json()
+})
+.then(function(api){
+    console.log(api)
 })
 .catch(function(error){
     console.log(error)
 })
-// we can use multiple then in our code / promises
-
-// ANOTHER  METHOD (_______________ try catch()________________ )
-// this is used for gracefully handling of things
-// PROMISE SIX
-const promiseSix= new Promise(function(resolve,reject){
-    setTimeout(function(){
-        const error= false
-        // const error= true
-        if(!error){
-            resolve({name:'JS', password : '@123'})
-        }else{
-            reject('ERROR : JS went wrong')
-        }
-    },6000)
-})
-async function consumePromiseSix(){
-   try {
-    const response=  await promiseSix
-   console.log(response)
-   } catch (error) {
-    console.log(error)
-   }
-}
-consumePromiseSix()
+// VIDEO NO. 40 DONE

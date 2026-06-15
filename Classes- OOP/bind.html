@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React</title>
+</head>
+<body>
+    <button>Clicked Here</button>
+    
+</body>
+<script>
+    class react{
+        constructor(){
+            this.library='React'
+            this.server='https://localhost:300'
+            document.querySelector('button').addEventListener('click',this.handle.bind(this))
+        }
+        handle(){
+            console.log('Button Clicked')
+            console.log(this)
+            console.log(this.server)
+            console.log(this.library)
+        }
+    }
+    const obj= new react()
+    // BIND _________ old method. used when react started
+</script>
+</html>

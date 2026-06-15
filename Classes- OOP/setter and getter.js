@@ -1,24 +1,26 @@
-// 15-06-2026 WORK
-// GETTER AND SETTER CONCEPT
+// SETTER AND GETTER FUNCTION 
 class user{
-    constructor(username,password,email){
-        this.username=username
-        this.password=password
-        this.email=email
-    }
-    get username(){
-        return this._username.toUpperCase()
-    }
-    set username(name){
-        this._username=name
-    }
-    get password(){
-        return this._password.toUpperCase()
-    }
-    set password(name){
-        this._password=name
-    }
+constructor(username,email,password){
+    this.username=username
+    this.email=email
+    this.password=password
 }
-const user1= new user('Sundas','@abc','sundas00@gmail.com')
+//_________________ username
+get username(){
+    return this._username.toUpperCase()
+}
+set username(name){
+    this._username=name
+}
+//________________________ password
+get password(){
+    // return this._password.toUpperCase()
+    return `${this._password}@#`
+}
+set password(value){
+    this._password=value
+}
+}
+const user1= new user('Arfa','arfamunam01@gmail.com','abc')
 console.log(user1.username)
 console.log(user1.password)

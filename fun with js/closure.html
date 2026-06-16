@@ -1,0 +1,75 @@
+<!-- 16-06-2026 WORK -->
+ <!-- LEXICAL SCOPPING CONCEPT -->
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure</title>
+  </head>
+  <body style="background-color: #313131;">
+    <button id="red">Red</button>
+    <button id="green">Green</button>
+    <button id="blue">Blue</button>
+    <button id="orange">Orange</button>
+    <button id="yellow">Yellow</button>
+    <button id="purple">Purple</button>
+    <button id="pink">Pink</button>
+    <button id="brown">Brown</button>
+  <script>
+    // function check(){
+    //    let name='Ayesha Sadiqa'
+    // }
+    // console.log(name)
+    // // we can't access variables outside a function because of scope problem
+    // ______________________ LEXICAL SCOPING CONCEPT
+    function outer(){
+        let name='Areej Fatima'
+        function inner(){
+            console.log(name)
+        }
+        inner()
+    }
+    outer()
+    // INNER FUNCTION CAN ACCESS VARIABLES OF OUTER FUNCTION
+
+     // ______________________ CLOSURE
+     function closure(){
+        let name='Closure Concept'
+        function displayName(){
+            console.log(name)
+        }
+        return displayName
+     }
+     let newFunc= closure()
+newFunc()
+//  IN CLOSURE -------- WE RETURN FUNCTION AND THEN USE THAT FUNCTION OUTSIDE THAT FUNCTION SCOPE
+
+
+  </script>
+  <script>
+    const body= document.querySelector('body')
+    function clickHandle(color){
+       return function colorHandler(){
+             body.style.backgroundColor=`${color}`
+        }
+    }
+    document.querySelector('#red').onclick= clickHandle('red')
+    document.querySelector('#green').onclick= clickHandle('green')
+    document.querySelector('#blue').onclick= clickHandle('blue')
+    document.querySelector('#orange').onclick= clickHandle('orange')
+    document.querySelector('#yellow').onclick= clickHandle('yellow')
+    document.querySelector('#purple').onclick= clickHandle('purple')
+    document.querySelector('#pink').onclick= clickHandle('pink')
+    document.querySelector('#brown').onclick= clickHandle('brown')
+    // const red= document.querySelector('#red').addEventListener('click',function(e){
+    //     body.style.backgroundColor='red'
+    // })
+    // const green= document.querySelector('#green').addEventListener('click',function(e){
+    //     body.style.backgroundColor='green'
+    // })
+    // const blue= document.querySelector('#blue').addEventListener('click',function(e){
+    //     body.style.backgroundColor= 'blue'
+    // })
+  </script>
+  </html>

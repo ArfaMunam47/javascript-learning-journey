@@ -46,3 +46,29 @@ console.log(newArr[9])
 console.log(newArr.hasOwnProperty(9))
 console.log(Array.prototype.hasOwnProperty(newArr,9))
 console.log(Object.prototype.hasOwnProperty(newArr,9)) //we check this because everything in JS is object
+// _____________ ORDER OF OPTIMIZATION IN ARRAY IN JS
+// PACKED __________ THEN HOLEY ARRAY
+// PACKED SMI > PACKED DOUBLE > PACKED ELEMENTS( objects )
+// HOLEY SMI > HOLEY DOUBLE > HOLEY ELEMENTS( objects )
+
+const arrTwo=new Array(3)
+// HOLEY ELEMENTS
+arrTwo[0]= 'A'
+arrTwo[1]= 'B'
+arrTwo[2]= 'C'
+console.log(arrTwo)
+
+// PACKED ELEMENTS
+const arrThree= []
+arrThree.push(1)
+arrThree.push(2)
+arrThree.push(3)
+console.log(arrThree)
+
+// Packed Double ELEMENTS
+const arrFour=[1,2,3,4,5]
+arrFour.push(NaN)
+arrFour.push(Infinity)
+console.log(arrFour)
+// ONCE THE TYPE OF ARRAY GOES TO DOWNWARD, THEN IT DOES GOES TO UPWARD EVEN IF WE DELETE THE ELEMENTS
+// PACKED SMI has faster execution

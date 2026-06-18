@@ -45,4 +45,4 @@ console.log(newArr[9]) // undefined
 console.log(newArr[9])
 console.log(newArr.hasOwnProperty(9))
 console.log(Array.prototype.hasOwnProperty(newArr,9))
-console.log(Object.prototype.hasOwnProperty(newArr,9))
+console.log(Object.prototype.hasOwnProperty(newArr,9)) //we check this because everything in JS is object

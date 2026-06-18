@@ -29,9 +29,20 @@ newArr.push('Hello')
 console.log(newArr)
 //  ________ ONCE THE ARRAY CONVERTED FROM SMI TO DOUBLE PACKED IT DOESN'T GET BACK TO SMI AGAIN. THIS IS HOW OPTIMIZATION WORK
 //________________ Holey Array Made (now it contain gap)
-newArr[10]='Arfa Munam'
-console.log(newArr)
-console.log(newArr.length) //actual length + 1 =11
-console.log(newArr[9])  //undefined
-console.log(newArr[2])  //3
-// in ARRAY, first BOUNDCHECK
+newArr[10]= 'Interesting'
+console.log(newArr.length) // length + 1
+console.log(newArr[2]) // 3 because index start from 0
+console.log(newArr[9]) // undefined
+// in HOLEY ARRAY
+// 1- boundcheck
+// 2- hasOwnProperty
+// 3- Array.prototype.hasOwnProperty
+// 4- Object.prototype.hasOwnProperty
+
+// Holes are very expensive in js  because of all the above mentioned steps
+// TRY TO AVOID HOLEY ARRAY IN JS. IT CAN CAUSE LONGER OPTIMIZATION OR OPTIMIZATION PROBLEMS
+
+console.log(newArr[9])
+console.log(newArr.hasOwnProperty(9))
+console.log(Array.prototype.hasOwnProperty(newArr,9))
+console.log(Object.prototype.hasOwnProperty(newArr,9))

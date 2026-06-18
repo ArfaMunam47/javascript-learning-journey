@@ -27,6 +27,8 @@ newArr.push(6.7)
 newArr.push('Hello')
 // Packed Double 
 console.log(newArr)
+//  ________ ONCE THE ARRAY CONVERTED FROM SMI TO DOUBLE PACKED IT DOESN'T GET BACK TO SMI AGAIN. THIS IS HOW OPTIMIZATION WORK
+//________________ Holey Array Made (now it contain gap)
 newArr[10]='Arfa Munam'
 console.log(newArr)
 console.log(newArr.length) //actual length + 1 =11
